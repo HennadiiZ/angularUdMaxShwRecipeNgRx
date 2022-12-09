@@ -32,3 +32,14 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 })
 export class AppModule {}
 
+//------------- NgRx -------------------
+
+// 354. What is Application State?
+// 355. What is NgRx?
+// 356. Getting Started with Reducers
+    // npm i --save @ngrx/store
+    // npm install @ngrx/store --save
+    // npm install --legacy-peer-deps
+
+    // npm install @ngrx/store --save --force // this worked out
+// 357. Adding Logic to the Reducer
