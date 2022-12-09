@@ -23,9 +23,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     this.recipes = this.recipeService.getRecipes();
     this.subscription = this.recipeService.recipeChanged.subscribe(
       (recipes) => {
-        // console.log('+++_+++', recipes);
         this.recipes = recipes;
-        // https://eda.ru/img/eda/c620x415/s1.eda.ru/StaticContent/Photos/160525131253/160602184657/p_O.jpg
       }
     )
   }

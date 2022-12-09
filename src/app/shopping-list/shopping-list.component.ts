@@ -9,11 +9,6 @@ import { ShoppingListService } from '../_services/shopping-list.service';
   styleUrls: ['./shopping-list.component.scss']
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
-  // ingredients: Ingredient[] = [
-  //   new Ingredient('Apples', 5),
-  //   new Ingredient('Pears', 3)
-  // ];
-
   ingredients: Ingredient[] = [];
   subscriptions = new Subscription;
 
@@ -30,11 +25,6 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
       )
     )
   }
-
-  // onAddIngredients(ingredient: Ingredient): void {
-  //   // this.ingredients.push(ingredient);
-  //   // this.ingredients.push(this.shoppingListService);
-  // }
 
   onEditItem(index: number):void {
     this.shoppingListService.startedEditing.next(index)

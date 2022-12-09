@@ -41,7 +41,6 @@ export class AuthComponent implements OnInit {
       this.authService.signUp(form.email, form.password)
       .subscribe(
         (value: any) => {
-          // console.log(value);
           this.loader = false;
           this.router.navigate(['/recipes']);
         },
@@ -56,9 +55,7 @@ export class AuthComponent implements OnInit {
       this.authService.signIn(form.email, form.password)
       .subscribe(
         (value: any) => {
-          // console.log(value);
           this.loader = false;
-          // this.router.navigate(['']);
           this.router.navigate(['/recipes']);
         },
         error => {
@@ -69,21 +66,14 @@ export class AuthComponent implements OnInit {
         }
       );
     }
-    // console.log(authForm);
-    // console.log(authForm.value);
     authForm.reset();
   }
-
-  // closeAlert(): void {
-  //   this.errorMessage = null;
-  // }
 
   onHandleError(): void {
     this.errorMessage = null;
   }
 
   private showErrorAlert(message: string): void {
-    // const alertComponent = new AlertComponent();
     const alertComponentFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
     const hostViewContainerRef = this.alertHost.viewContainerRef;
     hostViewContainerRef.clear();

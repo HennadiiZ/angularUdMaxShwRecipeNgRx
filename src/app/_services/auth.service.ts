@@ -18,13 +18,10 @@ export class AuthService {
   SIGN_UP = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=';
   SIGN_IN = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
   SIGN_OFF = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
-  // API_KEY = 'AIzaSyAuUHpZm38t_A7aM6xrBd5QUlWrUqF4IYM';
   API_KEY = environment.firebaseApiKey;
 
-  // userSubject = new Subject<User>();
   userSubject = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
-  // token: string = null;
 
   constructor(
     private http: HttpClient,
@@ -37,9 +34,6 @@ export class AuthService {
       { email, password, returnSecureToken: true }
     )
     .pipe(
-      // catchError((error)=> {
-      //   // not finished...
-      // }),
       tap(res => {
         this.handleAuthentication(
           res.email,

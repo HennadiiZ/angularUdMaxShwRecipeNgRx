@@ -24,13 +24,10 @@ export class RecipeEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      // console.log(params);
       this.id = +params['id'];
       this.editMode = params['id'] != null;
-      // console.log(this.editMode);
       this.initForm();
     });
-    // console.log('123+', this.recipeService.getRecipe(this.id))
   }
 
   private initForm():void {
@@ -66,30 +63,15 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onSubmit():void {
-    // console.log(this.recipeForm);
-
-    // const newRecipe = new Recipe(
-    //   this.recipeForm.value['name'],
-    //   this.recipeForm.value['description'],
-    //   this.recipeForm.value['imagePath'],
-    //   this.recipeForm.value['ingredients']
-    // );
-
     if(this.editMode) {
-      // this.recipeService.updateRecipe(this.id, newRecipe);
       this.recipeService.updateRecipe(this.id,  this.recipeForm.value);
-      // console.log("updateRecipe", this.id,  this.recipeForm.value);
-      // console.log(this.recipeService.getRecipes());
     } else {
-      // this.recipeService.addRecipe(newRecipe);
       this.recipeService.addRecipe(this.recipeForm.value);
-      // console.log("addRecip", this.recipeForm.value);
-      // console.log(this.recipeService.getRecipes());
     }
     this.onCancel();
   }
 
-  get controls() { // a getter!
+  get controls() {
     return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
 
@@ -109,6 +91,5 @@ export class RecipeEditComponent implements OnInit {
 
   onDeleteIngredient(i: number): void {
     (<FormArray>this.recipeForm.get('ingredients')).removeAt(i);
-    // (<FormArray>this.recipeForm.get('ingredients')).clear();
   }
 }

@@ -26,8 +26,6 @@
         >
       </div>
       <div>
-        <!-- <button class="btn btn-primary" style="margin-right: 10px;" *ngIf="isLoginMode"> Sign Up </button>
-        <button class="btn btn-primary" style="margin-right: 10px;" *ngIf="!isLoginMode"> Sign Off </button> -->
 
         <button
           class="btn btn-primary"
@@ -49,30 +47,10 @@
       </div>
     </form>
 
-    <!-- <div
-      *ngIf="errorMessage"
-      class="alert alert-danger"
-      (click)="closeAlert()"
-      style="margin-top: 10px; display: flex; justify-content: space-between; cursor: pointer;"
-    >
-      <p>{{ errorMessage }}</p>
-      <div>X</div>
-    </div> -->
-
-
-      <!-- <app-alert
-        *ngIf="errorMessage"
-        [message]="errorMessage"
-        (close)="onHandleError()"
-      ></app-alert> -->
-
-
       <ng-template appPlaceholder></ng-template>
 
     <div class="col-xs-12 col-md-6 col-md-offset-5" *ngIf="loader" style="margin-top: 20px;">
       <app-loader></app-loader>
     </div>
-
-
   </div>
 </div>
