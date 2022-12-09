@@ -43,3 +43,5 @@ export class AppModule {}
 
     // npm install @ngrx/store --save --force // this worked out
 // 357. Adding Logic to the Reducer
+
+// 358. Understanding & Adding Actions
