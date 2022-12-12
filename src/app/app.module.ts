@@ -11,6 +11,9 @@ import { AlertComponent } from './shared/alert/alert.component';
 import { AuthInterceptorService } from './_services/auth-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { StoreModule } from '@ngrx/store';
+import { shoppingListReducer } from './shopping-list/store/shopping-list.reduser';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     RecipesModule,
     ShoppingListModule,
     AuthModule,
-    SharedModule
+    SharedModule,
+    // StoreModule
+    StoreModule.forRoot({ shoppingList: shoppingListReducer })
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
@@ -45,3 +50,6 @@ export class AppModule {}
 // 357. Adding Logic to the Reducer
 
 // 358. Understanding & Adding Actions
+
+// 359. Setting Up the NgRx Store
+// 360. Selecting State

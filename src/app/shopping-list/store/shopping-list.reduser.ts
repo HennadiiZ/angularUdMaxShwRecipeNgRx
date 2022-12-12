@@ -1,6 +1,7 @@
 import { Action } from "@ngrx/store";
 import { Ingredient } from "../../_models/ingredient.model";
-import { ADD_INGREDIENT } from "./shopping-list.actions";
+// import { ADD_INGREDIENT } from "./shopping-list.actions";
+import * as ShoppingListActions from "./shopping-list.actions";
 
 // my state should be a js object:
 const initialState = { // this is my initial state
@@ -11,16 +12,28 @@ const initialState = { // this is my initial state
 };
 
 // shopping list service we want to replace
-export function shoppingListReducer(state = initialState, action: Action) {
+export function shoppingListReducer(
+  state = initialState,
+  action: ShoppingListActions.AddIngredient) {
+
   switch (action.type) {
-    case ADD_INGREDIENT:
+    case ShoppingListActions.ADD_INGREDIENT:
+
+      // return {
+      //   ...state,
+      //   ingredients: [
+      //     ...state.ingredients,
+      //     action
+      //   ]
+      // };
+
       return {
         ...state,
         ingredients: [
           ...state.ingredients,
-          action
+          action.payload
         ]
       };
-
+    default: state;
   }
 }
