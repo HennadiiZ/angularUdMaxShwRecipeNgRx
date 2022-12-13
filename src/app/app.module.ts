@@ -59,3 +59,5 @@ export class AppModule {}
 // 362. Multiple Actions
 
 // 363. Preparing Update & Delete Actions
+
+// 364. Updating & Deleting Ingredients
