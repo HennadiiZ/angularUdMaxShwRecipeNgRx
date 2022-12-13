@@ -13,7 +13,7 @@ import { Store } from '@ngrx/store';
 export class ShoppingListComponent implements OnInit, OnDestroy {
   // ingredients: Ingredient[] = [];
   ingredients: Observable<{ ingredients: Ingredient[] }>;
-  subscriptions = new Subscription;
+  // subscriptions = new Subscription;
 
   constructor(
     private shoppingListService: ShoppingListService,
@@ -33,7 +33,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     //     }
     //   )
     // )
-    
+
   }
 
   onEditItem(index: number):void {
@@ -41,7 +41,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy():void {
-    this.subscriptions.unsubscribe();
+    // this.subscriptions.unsubscribe();
   }
 
 }

@@ -14,8 +14,8 @@ const initialState = { // this is my initial state
 // shopping list service we want to replace
 export function shoppingListReducer(
   state = initialState,
-  action: ShoppingListActions.AddIngredient) {
-
+  action: ShoppingListActions.AddIngredient
+) {
   switch (action.type) {
     case ShoppingListActions.ADD_INGREDIENT:
 
@@ -34,6 +34,7 @@ export function shoppingListReducer(
           action.payload
         ]
       };
-    default: state;
+    default:
+      return state;
   }
 }

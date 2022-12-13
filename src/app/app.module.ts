@@ -53,3 +53,5 @@ export class AppModule {}
 
 // 359. Setting Up the NgRx Store
 // 360. Selecting State
+
+// 361. Dispatching Actions
