@@ -1,19 +1,29 @@
-import { Action } from "@ngrx/store";
+// import { Action } from "@ngrx/store";
+import { State } from "src/app/_interfaces/state.interface";
 import { Ingredient } from "../../_models/ingredient.model";
 // import { ADD_INGREDIENT } from "./shopping-list.actions";
 import * as ShoppingListActions from "./shopping-list.actions";
 
 // my state should be a js object:
-const initialState = { // this is my initial state
+// const initialState = { // this is my initial state
+//   ingredients: [
+//     new Ingredient('Apples', 5),
+//     new Ingredient('Tomatoes', 15)
+//   ]
+// };
+
+const initialState: State = { // this is my initial state
   ingredients: [
     new Ingredient('Apples', 5),
     new Ingredient('Tomatoes', 15)
-  ]
+  ],
+  editedIngredient: null,
+  editedIngredientIndex: -1
 };
 
 // shopping list service we want to replace
 export function shoppingListReducer(
-  state = initialState,
+  state: State = initialState,
   // action: ShoppingListActions.AddIngredient
 
   // action: ShoppingListActions.AddIngredient | ShoppingListActions.AddIngredients
@@ -62,7 +72,7 @@ export function shoppingListReducer(
     case ShoppingListActions.DELETE_INGREDIENT:
       return {
         ...state,
-        ingredients: state.ingredients.filter((ingredient, index) => {
+        ingredients: state.ingredients.filter((_, index) => {
           return index !== action.payload;
         })
       };

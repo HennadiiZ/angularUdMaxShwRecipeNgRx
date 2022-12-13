@@ -4,6 +4,8 @@ import { Ingredient } from '../_models/ingredient.model';
 import { ShoppingListService } from '../_services/shopping-list.service';
 
 import { Store } from '@ngrx/store';
+import { State } from '../_interfaces/state.interface';
+import { AppState } from '../_interfaces/app-state.interface';
 
 @Component({
   selector: 'app-shopping-list',
@@ -17,7 +19,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   constructor(
     private shoppingListService: ShoppingListService,
-    private store: Store<{ shoppingList: {ingredients: Ingredient[]} }>
+    // private store: Store<{ shoppingList: {ingredients: Ingredient[]} }>
+    private store: Store<AppState>
   ) {}
 
   ngOnInit(): void {
@@ -33,11 +36,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     //     }
     //   )
     // )
-
   }
 
   onEditItem(index: number):void {
-    this.shoppingListService.startedEditing.next(index)
+    this.shoppingListService.startedEditing.next(index);
   }
 
   ngOnDestroy():void {
