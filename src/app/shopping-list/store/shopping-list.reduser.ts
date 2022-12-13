@@ -38,13 +38,13 @@ export function shoppingListReducer(
         ]
       };
     case ShoppingListActions.ADD_INGREDIENTS:
-        return {
-          ...state,
-          ingredients: [
-            ...state.ingredients,
-            ...[action.payload]
-          ]
-        }
+      return {
+        ...state,
+        ingredients: [
+          ...state.ingredients,
+          ...[action.payload]
+        ]
+      };
     default:
       return state;
   }

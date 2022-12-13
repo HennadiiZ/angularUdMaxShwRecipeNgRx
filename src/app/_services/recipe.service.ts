@@ -30,7 +30,6 @@ export class RecipeService {
 
   addIngredientToShoppingList(ingredients: Ingredient[]): void {
     // this.shoppingListService.addIngredients(ingredients);
-
     this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
   }
 
