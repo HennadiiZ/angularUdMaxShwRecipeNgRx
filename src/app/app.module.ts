@@ -63,3 +63,5 @@ export class AppModule {}
 // 364. Updating & Deleting Ingredients
 
 // 365. Expanding the State
+
+// 366. Managing More State via NgRx
