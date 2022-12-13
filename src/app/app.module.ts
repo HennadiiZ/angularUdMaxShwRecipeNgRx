@@ -65,3 +65,5 @@ export class AppModule {}
 // 365. Expanding the State
 
 // 366. Managing More State via NgRx
+
+// 367. Removing Redundant Component State Management
