@@ -55,3 +55,5 @@ export class AppModule {}
 // 360. Selecting State
 
 // 361. Dispatching Actions
+
+// 362. Multiple Actions
