@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Recipe } from 'src/app/_models/recipe.model';
 import { RecipeService } from 'src/app/_services/recipe.service';
-import { ShoppingListService } from 'src/app/_services/shopping-list.service';
+// import { ShoppingListService } from 'src/app/_services/shopping-list.service';
 
 @Component({
   selector: 'app-recipe-detail',

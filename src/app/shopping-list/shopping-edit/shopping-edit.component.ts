@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChi
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Ingredient } from 'src/app/_models/ingredient.model';
-import { ShoppingListService } from 'src/app/_services/shopping-list.service';
+// import { ShoppingListService } from 'src/app/_services/shopping-list.service';
 import { Store } from '@ngrx/store';
 import * as ShoppingListActions from '../store/shopping-list.actions';
 import { AppState } from 'src/app/_interfaces/app-state.interface';
@@ -19,7 +19,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   editMode = false;
 
   constructor(
-    private shoppingListService: ShoppingListService,
+    // private shoppingListService: ShoppingListService,
     private store: Store<AppState>
   ) {}
 
