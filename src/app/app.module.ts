@@ -87,3 +87,6 @@ export class AppModule {}
 // 372. Auth Finished (For Now...)
 
 // 373. And Important Note on Actions
+
+// 374. Exploring NgRx Effects
+   // npm install --save @ngrx/effects
