@@ -24,7 +24,7 @@ export class AuthService {
   SIGN_OFF = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
   API_KEY = environment.firebaseApiKey;
 
-  userSubject = new BehaviorSubject<User>(null);
+  // userSubject = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
 
   constructor(
