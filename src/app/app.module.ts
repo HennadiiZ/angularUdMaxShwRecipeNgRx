@@ -12,7 +12,10 @@ import { AuthInterceptorService } from './_services/auth-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { StoreModule } from '@ngrx/store';
-import { shoppingListReducer } from './shopping-list/store/shopping-list.reduser';
+// import { shoppingListReducer } from './shopping-list/store/shopping-list.reduser';
+// import { authReducer } from './auth/store/auth.reducer';
+// import { CoreModule } from './core.module';
+import * as fromApp from './store/app.reducer';
 
 @NgModule({
   declarations: [
@@ -24,8 +27,13 @@ import { shoppingListReducer } from './shopping-list/store/shopping-list.reduser
     ShoppingListModule,
     AuthModule,
     SharedModule,
-    // StoreModule
-    StoreModule.forRoot({ shoppingList: shoppingListReducer })
+
+    // StoreModule.forRoot({
+    //   shoppingList: shoppingListReducer,
+    //   auth: authReducer
+    // })
+    StoreModule.forRoot(fromApp.appReducer),
+    // CoreModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
@@ -69,3 +77,5 @@ export class AppModule {}
 // 367. Removing Redundant Component State Management
 
 // 368. First Summary & Clean Up
+
+// 369. One Root State

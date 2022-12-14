@@ -1,5 +1,8 @@
 import { State } from "src/app/_interfaces/state.interface";
+import { AuthState } from "./auth-state.interface";
 
 export interface AppState {
-  shoppingList: State
+  shoppingList: State;
+  auth: AuthState
 }
+
