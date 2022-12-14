@@ -9,6 +9,10 @@ import { AuthResponseData } from '../_interfaces/auth-response-data.interface';
 import { User } from '../_models/user.model';
 
 import { environment } from 'src/environments/environment';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../store/app.reducer';
+import { AppState } from '../_interfaces/app-state.interface';
+import * as AuthActions from '../auth/store/auth.actions'
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +29,8 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private store: Store<AppState>
   ) {}
 
   signUp(email: string, password: string): Observable<AuthResponseData> {
@@ -81,14 +86,31 @@ export class AuthService {
     );
 
     if(loadedUser.token) {
-      this.userSubject.next(loadedUser);
+      // this.userSubject.next(loadedUser);
+
+      this.store.dispatch(
+        new AuthActions.Login(
+          {
+            email: loadedUser.email,
+            userId: loadedUser.id,
+            token: loadedUser.token,
+            expirationDate: new Date(userData._tokenExpirationDate)
+          }
+        )
+      );
+
       const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
       this.autoLogOut(expirationDuration);
     }
   }
 
   logOut(): void {
-    this.userSubject.next(null);
+    // this.userSubject.next(null);
+
+    this.store.dispatch(
+      new AuthActions.Logout()
+    )
+
     this.router.navigate(['/auth']);
     localStorage.removeItem('userData');
 
@@ -114,7 +136,19 @@ export class AuthService {
       token,
       expirationDate
     );
-    this.userSubject.next(user);
+    // this.userSubject.next(user);
+
+    this.store.dispatch(
+      new AuthActions.Login(
+        {
+          email: email,
+          userId: userId,
+          token: token,
+          expirationDate: expirationDate
+        }
+      )
+    );
+
     this.autoLogOut(+expirationDate * 1000);
     localStorage.setItem('userData', JSON.stringify(user));
   }
