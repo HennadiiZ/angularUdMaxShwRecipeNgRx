@@ -12,10 +12,12 @@ import { AuthInterceptorService } from './_services/auth-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 // import { shoppingListReducer } from './shopping-list/store/shopping-list.reduser';
 // import { authReducer } from './auth/store/auth.reducer';
 // import { CoreModule } from './core.module';
 import * as fromApp from './store/app.reducer';
+import { AuthEffects } from './auth/store/auth.effects';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import * as fromApp from './store/app.reducer';
     //   auth: authReducer
     // })
     StoreModule.forRoot(fromApp.appReducer),
+    // EffectsModule.forRoot([AuthEffects])
     // CoreModule
   ],
   providers: [
@@ -90,3 +93,7 @@ export class AppModule {}
 
 // 374. Exploring NgRx Effects
    // npm install --save @ngrx/effects
+
+// 375. Defining the First Effect
+// 376. Effects & Error Handling
+// 377. Login via NgRx Effects
